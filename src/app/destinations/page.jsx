@@ -1,3 +1,4 @@
+import DestinationCard from "@/components/DestinationCard";
 
 
 const DestinationPage = async() => {
@@ -7,12 +8,11 @@ const DestinationPage = async() => {
 
     return (
         <div>
-            All destination 
+            <h1 className="text-3xl font-bold p-5"> All destination</h1> 
 
-            <div>
+            <div className="grid grid-cols-3 gap-4 object-cover max-w-7xl mx-auto mt-5">
                 {
-                    destinations.map ( destination => <div key={destination._id }>
-                        {destination.destinationName}</div>)
+                    destinations.map ( destination => <DestinationCard key={destination._id} destination={destination} />)
                 }
             </div>
         </div>
