@@ -1,5 +1,9 @@
+import DeletDestination from "@/components/DeletDestination";
+import EditModel from "@/components/EditModel";
+import { Button } from "@heroui/react";
 import Image from "next/image";
 import Link from "next/link";
+import { BiEdit } from "react-icons/bi";
 import {
   FaLocationDot,
   FaCalendarDays,
@@ -26,8 +30,13 @@ const DestinationDetelsPage = async ({ params }) => {
   } = destination;
 
   return (
-    <div className="min-h-screen bg-white py-5">
+    <div className="min-h-screen bg-white py-5 mb-4">
       <div className="mx-auto max-w-6xl px-3">
+
+     <div className="flex justify-end gap-2 mb-3">
+        <EditModel destination={destination}></EditModel>
+       <DeletDestination destination={destination}></DeletDestination>
+     </div>
 
         {/* ================= IMAGE ================= */}
         <div className="relative h-[280px] w-full overflow-hidden md:h-[430px]">
