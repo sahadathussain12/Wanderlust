@@ -1,14 +1,13 @@
+
+
+import BookingCard from "@/components/BookingCard";
 import DeletDestination from "@/components/DeletDestination";
 import EditModel from "@/components/EditModel";
-import { Button } from "@heroui/react";
+import { Button, DateField, Label } from "@heroui/react";
 import Image from "next/image";
 import Link from "next/link";
 import { BiEdit } from "react-icons/bi";
-import {
-  FaLocationDot,
-  FaCalendarDays,
-  FaCheck,
-} from "react-icons/fa6";
+import { FaLocationDot, FaCalendarDays, FaCheck } from "react-icons/fa6";
 
 const DestinationDetelsPage = async ({ params }) => {
   const { id } = await params;
@@ -32,11 +31,10 @@ const DestinationDetelsPage = async ({ params }) => {
   return (
     <div className="min-h-screen bg-white py-5 mb-4">
       <div className="mx-auto max-w-6xl px-3">
-
-     <div className="flex justify-end gap-2 mb-3">
-        <EditModel destination={destination}></EditModel>
-       <DeletDestination destination={destination}></DeletDestination>
-     </div>
+        <div className="flex justify-end gap-2 mb-3">
+          <EditModel destination={destination}></EditModel>
+          <DeletDestination destination={destination}></DeletDestination>
+        </div>
 
         {/* ================= IMAGE ================= */}
         <div className="relative h-[280px] w-full overflow-hidden md:h-[430px]">
@@ -50,10 +48,8 @@ const DestinationDetelsPage = async ({ params }) => {
 
         {/* ================= CONTENT ================= */}
         <div className="grid grid-cols-1 gap-0 border border-gray-200 lg:grid-cols-3">
-
           {/* ================= LEFT SIDE ================= */}
           <div className="p-5 lg:col-span-2">
-
             {/* Country */}
             <div className="mb-1 flex items-center gap-1 text-xs text-gray-500">
               <FaLocationDot />
@@ -79,9 +75,7 @@ const DestinationDetelsPage = async ({ params }) => {
                 Overview
               </h2>
 
-              <p className="text-xs leading-5 text-gray-500">
-                {description}
-              </p>
+              <p className="text-xs leading-5 text-gray-500">{description}</p>
             </div>
 
             {/* Highlights */}
@@ -91,7 +85,6 @@ const DestinationDetelsPage = async ({ params }) => {
               </h2>
 
               <div className="grid grid-cols-1 gap-y-2 md:grid-cols-2">
-
                 <div className="flex items-center gap-2 text-xs text-gray-500">
                   <FaCheck className="text-green-500" />
                   Luxury beachfront accommodation
@@ -116,66 +109,12 @@ const DestinationDetelsPage = async ({ params }) => {
                   <FaCheck className="text-green-500" />
                   Sunrise trek to Mount Batur
                 </div>
-
               </div>
             </div>
           </div>
 
           {/* ================= RIGHT BOOKING CARD ================= */}
-          <div className="border-l border-gray-200 p-5">
-
-            <p className="text-xs text-gray-500">
-              Starting from
-            </p>
-
-            <h2 className="text-2xl font-bold text-cyan-500">
-              ${price}
-            </h2>
-
-            <p className="text-[10px] text-gray-400">
-              per person
-            </p>
-
-            {/* Date */}
-            <div className="mt-5 border border-gray-100 bg-gray-50 p-3">
-              <p className="text-[10px] text-gray-500">
-                Departure Date
-              </p>
-
-              <div className="mt-1 flex items-center gap-2">
-                <FaCalendarDays className="text-xs text-gray-500" />
-
-                <span className="text-xs text-gray-700">
-                  {departureDate}
-                </span>
-              </div>
-            </div>
-
-            {/* Book Button */}
-            <button className="mt-4 w-full bg-cyan-500 py-3 text-xs font-medium text-white hover:bg-cyan-600">
-              Book Now →
-            </button>
-
-            {/* Features */}
-            <div className="mt-4 space-y-2">
-
-              <p className="flex items-center gap-2 text-[10px] text-gray-500">
-                <FaCheck className="text-green-500" />
-                Free cancellation up to 7 days
-              </p>
-
-              <p className="flex items-center gap-2 text-[10px] text-gray-500">
-                <FaCheck className="text-green-500" />
-                Travel insurance included
-              </p>
-
-              <p className="flex items-center gap-2 text-[10px] text-gray-500">
-                <FaCheck className="text-green-500" />
-                24/7 customer support
-              </p>
-
-            </div>
-          </div>
+          <BookingCard destination={destination}/>
         </div>
       </div>
     </div>

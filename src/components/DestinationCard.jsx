@@ -1,5 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
+
 import { FaLocationDot, FaCalendarDays, FaArrowUpRightFromSquare } from "react-icons/fa6";
 
 const DestinationCard = ({ destination }) => {
@@ -13,6 +14,7 @@ const DestinationCard = ({ destination }) => {
     country,
     duration,
   } = destination;
+
 
   return (
     <div className="w-full max-w-5xl mx-auto mt-5 overflow-hidden rounded-lg bg-white shadow-md">

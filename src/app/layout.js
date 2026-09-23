@@ -2,6 +2,7 @@ import { Josefin_Sans } from "next/font/google";
 import "./globals.css";
 import Navber from "@/components/Navber";
 import Footer from "@/components/Footer";
+import { ToastContainer } from "react-toastify";
 
 const josefin= Josefin_Sans({
   subsets: ["latin"],
@@ -26,6 +27,7 @@ export default function RootLayout({ children }) {
           <Navber/>
           {children}
           <Footer/>
+             <ToastContainer />
         </main>
         </body>
     </html>

@@ -1,8 +1,11 @@
 "use client";
 import { Button, FieldError, Input, Label, ListBox, TextArea, TextField,Select, Card } from '@heroui/react';
+import { useRouter } from 'next/navigation';
+
 import React from 'react';
 
 const AddDestination = () => {
+    const router = useRouter();
     const submit= async (e) =>{
         e.preventDefault();
         const formData = new FormData(e.currentTarget);
@@ -18,6 +21,13 @@ const AddDestination = () => {
         })
          const data = await res.json();
          console.log(data,'data');
+
+         if(res.ok){
+           router.push("/destinations");
+         }
+         else {
+            console.log(error);
+         }
     }
 
     return (
